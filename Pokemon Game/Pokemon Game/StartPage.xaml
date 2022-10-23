@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="Pokemon_Game.StartPage"
+			 NavigationPage.HasNavigationBar="False"
+			 BackgroundColor="White">
+	<Grid Margin="10,10,10,10">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="50*"/>
+			<ColumnDefinition Width="50*"/>
+		</Grid.ColumnDefinitions>
+		<Image Source="StartBG.jpg"
+			   Grid.Column="0"/>
+		<Grid Grid.Column ="1" Margin="10,10,10,10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="20*"/>
+				<RowDefinition Height="20*"/>
+				<RowDefinition Height="20*"/>
+				<RowDefinition Height="20*"/>
+				<RowDefinition Height="20*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="50*"/>
+				<ColumnDefinition Width="50*"/>
+			</Grid.ColumnDefinitions>
+			<Button Text="Start"
+			TextColor="Black"
+			FontAttributes="Bold"
+			FontSize="{OnPlatform UWP=Header, Android = Large}"
+			Background="Transparent" 
+			Grid.Row="1" 
+			Grid.Column="1"
+			Clicked="StartButtonClicked"/>
+			<Button Text="Quit" 
+			TextColor="Black"
+			FontAttributes="Bold"
+			FontSize="{OnPlatform UWP=Header, Android = Large}"
+			Background="Transparent" 
+			Grid.Row="3" 
+			Grid.Column="1"
+			Clicked="QuitButtonClicked"/>
+		</Grid>
+	</Grid>
+	
+</ContentPage>

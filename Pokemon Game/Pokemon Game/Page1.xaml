@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Pokemon_Game.Page1"
+			 NavigationPage.HasNavigationBar="False"
+			 BackgroundImageSource="FightBackground.png">
+	<Grid Margin="10,10,10,10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="28*"/>
+			<RowDefinition Height="20*"/>
+			<RowDefinition Height="20*"/>
+			<RowDefinition Height="12*"/>
+			<RowDefinition Height="20*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="25*"/>
+			<ColumnDefinition Width="25*"/>
+			<ColumnDefinition Width="25*"/>
+			<ColumnDefinition Width="25*"/>
+		</Grid.ColumnDefinitions>
+
+		<StackLayout Grid.Row="0" Grid.Column="0">
+			<Label Text="temp"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   FontSize="{OnPlatform UWP=Medium, Android = Small}"
+				   x:Name="playerName" />
+			<Label Text="temp"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   FontSize="{OnPlatform UWP=Medium, Android = Small}"
+				   x:Name="playerHP"/>
+			<ProgressBar x:Name="playerHPBar"
+						 Progress="1"
+						 ProgressColor="Red" 
+						 ScaleY="1.5"/>
+			<Label Text="temp"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   FontSize="{OnPlatform UWP=Medium, Android = Small}"
+				   x:Name="playerMP"/>
+			<ProgressBar x:Name="playerMPBar"
+						 Progress="1"
+						 ProgressColor="Blue"
+						 ScaleY="1.5"/>
+			<Label Text="temp"
+				   TextColor="Red"
+				   FontSize="{OnPlatform UWP=Medium, Android = Small}"
+				   x:Name="notEnoughMana"
+				   IsVisible="false"/>
+			
+		</StackLayout>
+		<Image Source="Knight.png"
+			   Grid.Row="2"
+			   Grid.Column="0"/>
+
+		<StackLayout Grid.Row="0" Grid.Column="3">
+			<Label Text="temp"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   HorizontalTextAlignment="End"
+				   FontSize="{OnPlatform UWP=Medium, Android = Small}"
+				   x:Name="creatureName"/>
+			<Label Text="temp"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   HorizontalTextAlignment="End"
+				   FontSize="{OnPlatform UWP=Medium, Android = Small}"
+				   x:Name="creatureHP"/>
+			<ProgressBar x:Name="creatureHPBar"
+							 Progress="1"
+							 ProgressColor="Red"
+							 FlowDirection="LeftToRight"
+						 ScaleY="1.5"/>
+			
+		</StackLayout>
+		<Image Source="Rat.png"
+				   Grid.Row="1"
+				   Grid.Column="3"/>
+		
+		<Button Text="Attack" 
+				TextColor="White"
+				FontAttributes="Bold"
+				FontSize="{OnPlatform UWP=Large, Android = Medium}"
+				BackgroundColor="Transparent"
+				Grid.Row="4" 
+				Grid.Column="0"
+				Clicked="AttackButtonClicked" 
+				x:Name="attackButton"
+				IsVisible="True"/>
+			<Label Text="Mana Cost: 25"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   HorizontalTextAlignment="Center"
+				   VerticalTextAlignment="End"
+				   Grid.Row="3" 
+				   Grid.Column="0"
+				   FontSize="{OnPlatform UWP=Medium, Android = Caption}"
+				   x:Name="slashManaCost"
+				   IsVisible="false"/>
+			<Button Text="Slash" 
+					TextColor="White"
+				   FontAttributes="Bold"
+					FontSize="{OnPlatform UWP=Large, Android = Medium}"
+					BackgroundColor="Transparent" 
+					Grid.Row="4" 
+					Grid.Column="0"
+					Clicked="SlashButtonClicked" 
+					x:Name="slashButton"
+					IsVisible="True"/>
+			<Label Text="Mana Cost: 10"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   HorizontalTextAlignment="Center"
+				   VerticalTextAlignment="End"
+				   Grid.Row="3" 
+				   Grid.Column="1"
+				   FontSize="{OnPlatform UWP=Medium, Android = Caption}"
+				   x:Name="stabManaCost"
+				   IsVisible="false"/>
+		<Button Text="Stab" 
+					TextColor="White"
+				   FontAttributes="Bold"
+					FontSize="{OnPlatform UWP=Large, Android = Medium}"
+					BackgroundColor="Transparent" 
+					Grid.Row="4" 
+					Grid.Column="1"
+					Clicked="StabButtonClicked" 
+					x:Name="stabButton"
+					IsVisible="True"/>
+		<Label Text="Mana Cost: 5"
+				   TextColor="White"
+				   FontAttributes="Bold"
+				   HorizontalTextAlignment="Center"
+				   VerticalTextAlignment="End"
+				   Grid.Row="3" 
+				   Grid.Column="2"
+				   FontSize="{OnPlatform UWP=Medium, Android = Caption}"
+				   x:Name="throwManaCost"
+				   IsVisible="false"/>
+			<Button Text="Throw Rock" 
+					TextColor="White"
+				    FontAttributes="Bold"
+					FontSize="{OnPlatform UWP=Large, Android = Medium}"
+					BackgroundColor="Transparent" 
+					Grid.Row="4" 
+					Grid.Column="2"
+					Clicked="ThrowButtonClicked" 
+					x:Name="throwButton"
+					IsVisible="True"/>
+
+		<Button Text="Heal" 
+				TextColor="White"
+				   FontAttributes="Bold"
+				FontSize="{OnPlatform UWP=Large, Android = Medium}"
+				BackgroundColor="Transparent" 
+				Grid.Row="4" 
+				Grid.Column="1"
+				Clicked="HealButtonClicked"
+				x:Name="healButton"
+				IsVisible="True"/>
+		<Label Text="Heals Left: 2"
+			   TextColor="White"
+				   FontAttributes="Bold"
+			   HorizontalTextAlignment="Center"
+			   VerticalTextAlignment="End"
+			   Grid.Row="3" 
+			   Grid.Column="1"
+			   FontSize="{OnPlatform UWP=Medium, Android = Caption}"
+			   x:Name="healCountLabel"
+			   IsVisible="true"/>
+
+		<Button Text="Menu" 
+				TextColor="White"
+				   FontAttributes="Bold"
+				FontSize="{OnPlatform UWP=Large, Android = Medium}"
+				BackgroundColor="Transparent" 
+				Grid.Row="4" 
+				Grid.Column="3"
+				Clicked="MenuButtonClicked"
+				x:Name="menuButton"
+				IsVisible="True"/>
+			<Button Text="Quit to Start" 
+					TextColor="White"
+				   FontAttributes="Bold"
+					FontSize="{OnPlatform UWP=Large, Android = Medium}"
+					BackgroundColor="Transparent" 
+					Grid.Row="4" 
+					Grid.Column="1"
+					Clicked="QuitToStartButtonClicked"
+					x:Name="quitToStartButton"
+					IsVisible="False"/>
+			<Button Text="Quit Game" 
+					TextColor="White"
+				   FontAttributes="Bold"
+					FontSize="{OnPlatform UWP=Large, Android = Medium}"
+					BackgroundColor="Transparent" 
+					Grid.Row="4" 
+					Grid.Column="2"
+					Clicked="QuitButtonClicked"
+					x:Name="quitButton"
+					IsVisible="False"/>
+		
+		<Button Text="Back" 
+				TextColor="White"
+				   FontAttributes="Bold"
+				FontSize="{OnPlatform UWP=Large, Android = Medium}"
+				BackgroundColor="Transparent" 
+				Grid.Row="4" 
+				Grid.Column="3"
+				Clicked="BackButtonClicked"
+				x:Name="backButton"
+				IsVisible="False"/>
+
+		<Label Text="temp"
+			   TextColor="White"
+				   FontAttributes="Bold"
+			   HorizontalTextAlignment="Center"
+			   VerticalTextAlignment="Center"
+			   Grid.Row="2" 
+			   Grid.Column="1"
+			   FontSize="{OnPlatform UWP=Large, Android = Medium}"
+			   x:Name="restartLabel"
+			   IsVisible="false"/>
+		<Button Text="Restart" 
+				TextColor="White"
+				   FontAttributes="Bold"
+				FontSize="{OnPlatform UWP=Large, Android = Medium}"
+				BackgroundColor="Transparent" 
+				Grid.Row="2" 
+				Grid.Column="2"
+				Clicked="RestartButtonClicked"
+				x:Name="restartButton"
+				IsVisible="False"/>
+		
+	</Grid>
+</ContentPage>
